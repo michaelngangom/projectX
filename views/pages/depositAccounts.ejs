@@ -1,0 +1,45 @@
+<% include /workspace/projectx/views/partials/header.ejs %>
+<div class="ui  divider"></div>
+<h2 class="ui center aligned icon header">
+  <i class="address card icon"></i>
+  Bank Accounts on Your Mambu Platform
+</h2>
+
+
+<div class="col-md-3 text-center">
+	<table class="ui inverted olive table">
+      <thead>
+        <tr>
+		  <th>Name</th>
+          <th>ID</th>
+          <th>accountHolderType</th>
+          <th>accountState</th>
+		  <th>accountType</th>
+          <th>currencyCode</th>
+
+        </tr>
+      </thead>
+
+      <tbody>
+		  <% if(allAccounts!=null){%>
+        <% for(var i=0; i < allAccounts.length; i++) { %>
+       <tr>
+		
+         <td><%= allAccounts[i].name %></td>
+         <td><%= allAccounts[i].id %></td>
+         <td><%= allAccounts[i].accountHolderType %></td>
+		 <td><%= allAccounts[i].accountState %></td>
+         <td><%= allAccounts[i].accountType %></td>
+		 <td><%= allAccounts[i].currencyCode %></td>
+
+
+       </tr>
+	   <% } %>
+    <% } %>
+      </tbody>
+
+    </table>
+	
+</div>
+
+<% include /workspace/projectx/views/partials/footer.ejs %>

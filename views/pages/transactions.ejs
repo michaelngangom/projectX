@@ -1,0 +1,59 @@
+<% include /workspace/projectx/views/partials/header.ejs %>
+<div class="ui  divider"></div>
+
+<h2 class="ui center aligned icon header">
+  <i class="money bill alternate icon"></i>
+  This is specific to cards
+</h2>
+
+<div class="col-md-3 text-center">
+	<div style="height:700px;overflow-x: scroll;">
+	<table class="ui inverted olive table">
+      <thead>
+        <tr>
+			<th>Card</th>
+		  <th>Name</th>
+          <th>encodedKey</th>
+          <th>cardToken</th>
+          <th>Remaining amount</th>
+		      <th>Transaction amount</th>
+          <th>Created on</th>
+        </tr>
+      </thead>
+	
+      <tbody>
+      	<% if(allTransactions !=null){%>
+        <% for(var i=0; i < allTransactions.length; i++) { %>
+       <tr>
+		<% if(allTransactions[i].cardTransaction != null) {%>
+		   <td>True</td>
+		   <td><%= allTransactions[i].cardTransaction.cardAcceptor.name %></td>
+           <td><%= allTransactions[i].encodedKey %></td>
+           <td><%= allTransactions[i].cardTransaction.cardToken %></td>
+		   <td><%= allTransactions[i].accountBalances.totalBalance %></td>
+           <td><%= allTransactions[i].cardTransaction.amount %></td>
+		   <td><%= allTransactions[i].creationDate %></td>
+		     
+		  <% } else { %>
+		   <td>False</td>
+		   <td>NA</td>
+           <td><%= allTransactions[i].encodedKey %></td>
+           <td>NA</td>
+		   <td><%= allTransactions[i].accountBalances.totalBalance %></td>
+           <td><%= allTransactions[i].amount %></td>
+		   <td><%= allTransactions[i].creationDate %></td>
+		    <% } %> 
+       </tr>
+	 		
+		   <% } %>
+		    <% } %>
+
+    
+     
+      </tbody>
+	
+    </table>
+
+</div>
+</div>
+<% include /workspace/projectx/views/partials/footer.ejs %>

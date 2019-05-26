@@ -1,0 +1,141 @@
+<% include /workspace/projectx/views/partials/header.ejs %>
+
+<div class="ui  divider"></div>
+    <div class="row justify-content-center">
+<h2 class="ui center aligned icon header">
+  <i class="handshake outline icon"></i>
+  This are the Card Token(S) on Mambu Side
+</h2>
+		
+		<!-- <div>
+			<h1>
+				 Tokens Foun
+			</h1>
+		</div> -->
+		
+<div class="col-md-3 text-center">
+	<table class="ui inverted olive table">
+      <thead>
+        <tr>
+          <th>cardToken</th>
+        </tr>
+      </thead>
+      <tbody>
+		  <%if (token2 !=null){%>
+        <% for(var i=0; i < token2.length; i++) { %>
+       <tr>
+         <td><%= token2[i].referenceToken %></td>
+       </tr>
+    <% } %>
+		  <% } %>
+      </tbody>
+    </table>	
+</div>	
+		
+		<div class="ui  divider"></div>
+			
+<div class="ui main text container">
+<div class="ui huge header">Mambu Card Transaction</div>
+<div class="ui top attached segment">
+	
+		<div class="ui divided items">
+			<div class="item">	    
+				<div class="content">	     
+					<form class="ui form" action='/financialtransactions' method="POST">
+
+						<div >
+							<label>Select the card from the above</label>
+							 <input type="text" name="cardToken" value="" placeholder="Please select one of the available card token">
+						</div>
+
+						<div >
+							<label>externalReferenceId</label>
+							 <input type="text" name="externalReferenceId" value="">
+						</div>
+						<div >
+							<label>amount</label>
+							 <input type="text" name="amount" value="" placeholder="Enter an amount.">
+						</div>
+						<div >
+							<label>currencyCode</label>
+							 <input type="text" name="currencyCode" value="EUR">
+						</div>
+
+						<div >
+							<label>externalAuthorizationReferenceId</label>
+							 <input type="text" name="externalAuthorizationReferenceId" value="T">
+						</div>
+
+						<div >
+							<label>advice</label>
+							 <input type="text" name="advice" value="true">
+						</div>		
+						<div >
+							<label>transactionChannelId</label>
+							 <input type="text" name="transactionChannelId" value="cash">
+						</div>
+						 <input class="ui blue basic big button" type="submit" placeholder="Submit Final" name ="Final Submit">
+					</form>
+				</div>
+			</div>
+		</div>
+	
+
+</div>    			
+</div>
+		
+		<div class="ui  divider"></div>
+		
+<div class="ui main text container">
+	
+	<div class="ui huge header">Mambu Card Auth Hold Transaction</div>
+
+	
+						<div class="ui top attached segment">
+							<div class="ui divided items">
+								<div class="item">	    
+									<div class="content">	     
+											<form class="ui form" action='/authorizationholds' method="POST">			
+											<div >
+												<label>Select the card from the above</label>
+												 <input type="text" name="cardToken" value="" placeholder="Please select one of the available card token">
+											</div>
+
+											<div >
+												<label>externalReferenceId</label>
+												 <input type="text" name="externalReferenceId" value="">
+											</div>
+											<div >
+												<label>amount</label>
+												 <input type="text" name="amount" value="">
+											</div>
+											<div >
+												<label>currencyCode</label>
+												 <input type="text" name="currencyCode" value="EUR">
+											</div>
+
+											<div >
+												<label>externalAuthorizationReferenceId</label>
+												 <input type="text" name="externalAuthorizationReferenceId" value="">
+											</div>
+
+											<div >
+												<label>advice</label>
+												 <input type="text" name="advice" value="true">
+											</div>			
+											<div >
+												<label>transactionChannelId</label>
+												 <input type="text" name="transactionChannelId" value="cash">
+											</div>
+											 <input class="ui blue basic big button" type="submit" placeholder="Submit Auth Hold" name="Submit Auth Hold">
+											</form>
+									</div>
+								</div>
+						</div>
+	
+	</div>   
+	</div>
+			
+
+
+<% include /workspace/projectx/views/partials/footer.ejs %>

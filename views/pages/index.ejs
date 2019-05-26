@@ -1,0 +1,133 @@
+<% include /workspace/projectx/views/partials/header.ejs %>
+
+<div class="ui  divider"></div>
+<div class="ui placeholder segment">
+  <div class="ui two column very relaxed stackable grid">
+    <div class="column">
+      <div class="ui form">
+        <div class="field">
+          <label>WebService Username</label>
+          <div class="ui left icon input">
+            <input type="text" placeholder="Username">
+            <i class="user icon"></i>
+          </div>
+        </div>
+        <div class="field">
+          <label>WebService Password</label>
+          <div class="ui left icon input">
+            <input type="password">
+            <i class="lock icon"></i>
+          </div>
+        </div>
+        <div class="ui olive submit button">Set Credentials</div>
+      </div>
+    </div>
+    <div class="middle aligned column">
+      <div class="ui olive big button">
+        <i class="signup icon"></i>
+        Create a new WS user
+      </div>
+    </div>
+  </div>
+  <div class="ui vertical divider">
+    Or
+  </div>
+</div>
+
+<div class="ui main text container">
+	<div class="ui huge header centered">Mambu Card Transaction</div>
+			<div class="ui top attached segment">
+				<div class="ui divided items">
+					<div class="item">
+						<p>
+							Get Tokens for an Account:
+						</p>
+							<div class="content">
+								<form class="ui form" action='/getCards' method="POST">
+									<div >
+										<label>Account ID</label>
+										 <input type="text" name="accountID" value="YPJK384">
+									</div>
+									 <input class="ui olive submit button" type="submit">
+								</form>
+							</div>
+						<p>
+							Get Hold transactions:
+						</p>
+							<div class="content">
+							<form class="ui form" action='/getAuthorizationholds' method="POST">
+								<div >
+									<label>Account ID</label>
+									 <input type="text" name="accountAHID" value="YPJK384">
+								</div>
+								 <input class="ui olive submit button" type="submit">
+							</form>
+							</div>
+					</div>
+				</div>
+		</div>
+<div class="ui  divider"></div>
+
+<div class="ui header centered">Get All transactions of an Account</div>
+							<div>
+							<form class="ui form" action='/getAllTransaction' method="POST">
+								<div >
+									<label>Account ID</label>
+									 <input type="text" name="accountAHID" value="YPJK384">
+								</div>
+								<button  class="ui olive submit button" type="submit">Submit</button><br>
+  								<button  class="ui olive submit button" type="submit" formaction="/getAccount">Retrive all accounts</button>
+							</form>
+							</div>
+			 
+<div class="ui  divider"></div>
+
+
+
+<div class="ui header centered">Create a new card Token</div>
+						<div>
+							<form class="ui form" action='/createToken' method="POST">
+								<div >
+									<label>Token Code</label>
+									 <input type="text" name="tokenCode" value="" placeholder="">
+								</div>
+								<div >
+									<label>Account ID</label>
+									 <input type="text" name="accountAHID" value="">
+								</div>
+								<div >
+									<label>Card Number</label>
+									 <input type="text" name="card" value="">
+								</div>
+								
+  								<div class="two column row">
+								   <button  class="ui olive submit button" type="submit">Submit</button><br>
+  								   <button  class="ui olive submit button centered" type="submit" formaction="/getToken">Get Tokens and Card</button>
+									
+									</div>
+							</form>
+						</div>
+							
+	
+			<div class="ui  divider"></div>
+		
+<div class="ui header centered">Link a token to an Account(deposit)</div>
+						
+							<form class="ui form" action='/linkToken' method="POST">
+								<div >
+									<label>Account ID</label>
+									 <input type="text" name="accountAHID" value="YPJK384">
+								</div>
+								<div >
+									<label>Token</label>
+									 <input type="text" name="token" value="">
+								</div>
+								 <input class="ui olive submit button" type="submit">
+							</form>
+						
+								</div>
+
+SEKR032
+
+
+<% include /workspace/projectx/views/partials/footer.ejs %>

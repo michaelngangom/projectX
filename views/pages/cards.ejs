@@ -1,0 +1,39 @@
+<% include /workspace/projectx/views/partials/header.ejs %>
+<div class="ui  divider"></div>
+
+<h2 class="ui center aligned icon header">
+  <i class="credit card outline icon"></i>
+  This is the information stored on Cleint side - CMS
+</h2>
+
+
+<div class="col-md-3 text-center">
+	<table class="ui inverted olive table">
+      <thead>
+        <tr>
+			<th>ID</th>
+		  <th>Token</th>
+          <th>Card Number</th>
+			<th>Account ID</th>
+		
+			
+        </tr>
+      </thead>
+
+      <tbody>
+        <% for(var i=0; i < result.length; i++) { %>
+       <tr>
+		<td><%= result[i]._id %></td>
+         <td><%= result[i].tokenCode %></td>
+         <td><%= result[i].card %></td>
+		    <td><%= result[i].accountAHID %></td>
+       </tr>
+	  
+    <% } %>
+      </tbody>
+
+    </table>
+	
+</div>
+
+<% include /workspace/projectx/views/partials/footer.ejs %>
