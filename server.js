@@ -33,6 +33,10 @@ app.set('view engine','ejs');
 var CONNECTION_URL='mongodb+srv://dbadmin:mongodb123@cluster0-grfcl.mongodb.net/test?retryWrites=true';
 const DATABASE_NAME = "CardToken";
 
+app.get("/",(request, response)=>{
+	response.render("hello");
+});
+
 app.post("/storeCredentails",(request,response)=>{
 	console.log(request.body.username);
 	console.log(request.body.password);
