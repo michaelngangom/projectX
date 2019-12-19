@@ -4,7 +4,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-	  "start":"node server.js"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -21,7 +21,8 @@
     "nodemon": "^1.19.0",
     "req-flash": "0.0.3",
     "request": "^2.88.0",
-    "unirest": "^0.6.0"
+    "unirest": "^0.6.0",
+    "winston-loggly-bulk": "^3.0.1"
   },
   "devDependencies": {},
   "description": ""

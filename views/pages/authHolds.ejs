@@ -1,4 +1,4 @@
-d<% include /workspace/projectx/views/partials/header.ejs %>
+<% include /workspace/projectx/views/partials/header.ejs %>
 <div class="ui  divider"></div>
 <h2 class="ui center aligned icon header">
   <i class="euro sign icon"></i>
@@ -11,8 +11,9 @@ d<% include /workspace/projectx/views/partials/header.ejs %>
 	<table class="ui inverted olive table">
       <thead>
         <tr>
-		  
+
           <th>encodedKey</th>
+			<th>ID</th>
           <th>cardToken</th>
           <th>externalReferenceId</th>
 		  <th>amount</th>
@@ -25,9 +26,9 @@ d<% include /workspace/projectx/views/partials/header.ejs %>
         <% if(token1 !=null){ %>
         <% for(var i=0; i < token1.length; i++) { %>
        <tr>
-         
+
          <td class=""><%= token1[i].encodedKey %></td>
-		   
+		<td class=""><%= token1[i].id %></td>
          <td class=""><%= token1[i].cardToken %></td>
 		     <td class=""><%= token1[i].externalReferenceId %></td>
          <td class=""><%= token1[i].amount %></td>
@@ -44,14 +45,20 @@ d<% include /workspace/projectx/views/partials/header.ejs %>
 </div>
 <div class="ui  divider"></div>
 
-<div class="ui grid">
 
-<div class="ui main text container">
+<div class="ui placeholder segment">
+<div class="ui two column very relaxed stackable grid">
+<div class="column">
+
+
+
+
+<div class="ui huge header"> Complete/Modify/delete AUTHHold OR Refund</div>
 
 <div class="ui top attached segment">
-<div class="ui huge header">Mambu Complete/Modify/delete AUTHHold transaction</div>
-<div class="item">
-	    <div class="content">
+ 
+    <div class="item">
+
 							<form class="ui form" action='/financialtransactions' method="POST">
 								<div >
 									<label>Select the card from the above</label>
@@ -88,6 +95,7 @@ d<% include /workspace/projectx/views/partials/header.ejs %>
 									  <option value="Decrease">Decrease</option>
 									  <option value="Reverse">Reverse</option>
 									  <option value="Complete">Complete</option>
+										<option value="Refund">Refund</option>
 									</select>
 								</div>
 
@@ -98,32 +106,34 @@ d<% include /workspace/projectx/views/partials/header.ejs %>
 								</div>
 								 <input class="ui blue basic big button" type="submit" placeholder="Submit Auth Hold" name="Submit Auth Hold">
 							</form>
-</div>
-</div>
-</div>
+
 </div>
 
 </div>
-<div class="ui  divider"></div>
+
+
+
+</div>
+
 
 <div class="ui main text container">
 
 	<div class="ui huge header">Mambu Card Auth Hold Transaction</div>
 
 
-						<div class="ui top attached segment">
-							<div class="ui divided items">
+						<div class="ui  top attached segment">
+							
 								<div class="item">
 									<div class="content">
 											<form class="ui form" action='/authorizationholds' method="POST">
 											<div >
 												<label>Select the card from the above</label>
-												 <input type="text" name="cardToken" value="" placeholder="Please select one of the available card token">
+												 <input type="text" name="cardToken" id ="cardToken" value="" placeholder="Please select one of the available card token">
 											</div>
 
 											<div >
 												<label>externalReferenceId</label>
-												 <input type="text" name="externalReferenceId" value="">
+												 <input type="text" name="externalReferenceId" id="externalReferenceId" value="">
 											</div>
 											<div >
 												<label>amount</label>
@@ -134,10 +144,10 @@ d<% include /workspace/projectx/views/partials/header.ejs %>
 												 <input type="text" name="currencyCode" value="EUR" readonly="readonly">
 											</div>
 
-											<div >
+											<!-- <div >
 												<label>externalAuthorizationReferenceId</label>
 												 <input type="text" name="externalAuthorizationReferenceId" value="">
-											</div>
+											</div> -->
 
 											<div >
 												<label>advice</label>
@@ -148,10 +158,10 @@ d<% include /workspace/projectx/views/partials/header.ejs %>
 												 <input type="text" name="transactionChannelId" value="cash">
 											</div>
 
-											<div >
+											<!-- <div >
 												<label>Action</label>
 												 <input type="text" name="action" value="true">
-											</div>
+											</div> -->
 
 											 <input class="ui blue basic big button" type="submit" placeholder="Submit Auth Hold" name="Submit Auth Hold">
 											</form>
@@ -159,12 +169,13 @@ d<% include /workspace/projectx/views/partials/header.ejs %>
 								</div>
 						</div>
 	</div>
-	</div>
+
+</div>
+  <div class="ui vertical divider">
+    Or
+  </div>
 </div>
 
-		</div>
-			<a href="/index">Go Back</a>
-        </div>
-    </div>
+
 
 <% include /workspace/projectx/views/partials/footer.ejs %>

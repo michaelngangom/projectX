@@ -1,7 +1,8 @@
 <% include /workspace/projectx/views/partials/header.ejs %>
 
 <div class="ui  divider"></div>
-<div class="ui placeholder segment">
+
+<!-- <div class="ui placeholder segment">
   <div class="ui two column very relaxed stackable grid">
     <div class="column">
       <div class="ui form">
@@ -23,19 +24,155 @@
       </div>
     </div>
     <div class="middle aligned column">
-      <div class="ui olive big button">
+      <form class="" action="/createClient" method="post">
+
+
+
+      <div class="ui olive big button " type="submit" action="/createClient" method="post">
+
         <i class="signup icon"></i>
-        Create a new WS user
+        Create a new Client
       </div>
+      </form>
     </div>
   </div>
   <div class="ui vertical divider">
     Or
   </div>
+</div> -->
+
+
+<div class="ui placeholder segment">
+  <div class="ui two column very relaxed stackable grid">
+
+    <div class="column">
+      <div class="ui huge header centered">Mambu Card Transaction</div>
+      <div class="ui top attached segment">
+				<div class="ui divided items">
+					<div class="item">
+
+						<p>
+							Get Tokens:
+						</p>
+							<div class="content">
+								<form class="ui form" action='/getCards' method="POST">
+									<div >
+										<label>Account ID</label>
+										 <input type="text" name="accountID" value="">
+									</div><br>
+									 <input class="ui olive submit button" type="submit">
+								</form>
+							</div>
+						<p>
+							Get Hold transactions:
+						</p>
+							<div class="content">
+							<form class="ui form" action='/getAuthorizationholds' method="POST">
+								<div >
+									<label>Account ID</label>
+									 <input type="text" name="accountAHID" value="">
+								</div><br>
+								 <input class="ui olive submit button" type="submit">
+							</form>
+							</div>
+					</div>
+				</div>
+		</div>
+<div class="ui  divider"></div>
+
+
+<div class="ui header centered">Get All transactions of an Account</div>
+							<div class ="centered">
+							<form class="ui form" action='/getAllTransaction' method="POST">
+								<div >
+									<label>Account ID</label>
+									 <input type="text" name="accountAHID" value="">
+								</div><br>
+								<button  class="ui olive submit button" type="submit">Submit</button><br>
+  								<button  class="ui olive submit button" type="submit" formaction="/getAccount">Retrive all accounts</button>
+							</form>
+							</div>
+
+<div class="ui  divider"></div>
+
+<div class="ui header centered">Link a token to an Account(deposit)</div>
+
+        <form class="ui form" action='/linkToken' method="POST">
+          <div >
+            <label>Account ID</label>
+             <input type="text" name="accountAHID" value="">
+          </div>
+          <div >
+            <label>Token</label>
+             <input type="text" name="token" value="">
+          </div><br>
+
+			<button  class="ui olive submit button" type="submit">Link</button><br>
+		<button  class="ui olive submit button" type="submit" formaction="/delink">De-Link</button>
+        </form>
+    </div>
+
+    <div class="middle aligned column">
+
+      <div class="ui header centered">Create a new card Token (On the Client side- CMS)</div>
+      						<div>
+      							<form class="ui form" action='/createToken' method="POST">
+      								<div >
+      									<label>Token Code</label>
+      									 <input type="text" id ="token" name="tokenCode" value="" placeholder="">
+      								</div>
+      								<div >
+      									<label>Account ID</label>
+      									 <input type="text" id= "accountid" name="accountAHID" value="">
+      								</div>
+      								<div >
+      									<label>Card Number</label>
+      									 <input type="text" id="card" name="card" value="">
+      								</div>
+
+        								<div class="two column row"><br>
+      								   <button  class="ui blue submit button" type="submit">Submit</button><br>
+        								   <button  class="ui blue submit button centered" type="submit" formaction="/getToken">Get Tokens and Card</button>
+
+      									</div>
+      							</form>
+      						</div>
+
+
+
+      			<div class="ui  divider"></div>
+
+		      <div class="ui header centered">Search Token for an Account (Client side)</div>
+      						<div>
+      							<form class="ui form" action='/getAccountFromToken' method="POST">
+      								<div >
+      									<label>Token Code</label>
+      									 <input type="text" name="tokenID" value="" placeholder="">
+      								</div>
+
+        								<div class="two column row"><br>
+      								   <button  class="ui blue submit button" type="submit">Submit</button><br>
+
+
+      									</div>
+      							</form>
+      						</div>
+
+
+
+    </div>
+
+  </div>
+  <div class="ui vertical divider">
+    |
+  </div>
 </div>
 
-<div class="ui main text container">
+<!-- <div class="ui main text container">
+
 	<div class="ui huge header centered">Mambu Card Transaction</div>
+
+
 			<div class="ui top attached segment">
 				<div class="ui divided items">
 					<div class="item">
@@ -79,12 +216,12 @@
   								<button  class="ui olive submit button" type="submit" formaction="/getAccount">Retrive all accounts</button>
 							</form>
 							</div>
-			 
+
 <div class="ui  divider"></div>
 
 
 
-<div class="ui header centered">Create a new card Token</div>
+<div class="ui header centered">Create a new card Token (On the Client side- CMS)</div>
 						<div>
 							<form class="ui form" action='/createToken' method="POST">
 								<div >
@@ -99,20 +236,20 @@
 									<label>Card Number</label>
 									 <input type="text" name="card" value="">
 								</div>
-								
+
   								<div class="two column row">
 								   <button  class="ui olive submit button" type="submit">Submit</button><br>
   								   <button  class="ui olive submit button centered" type="submit" formaction="/getToken">Get Tokens and Card</button>
-									
+
 									</div>
 							</form>
 						</div>
-							
-	
+
+
 			<div class="ui  divider"></div>
-		
+
 <div class="ui header centered">Link a token to an Account(deposit)</div>
-						
+
 							<form class="ui form" action='/linkToken' method="POST">
 								<div >
 									<label>Account ID</label>
@@ -124,10 +261,17 @@
 								</div>
 								 <input class="ui olive submit button" type="submit">
 							</form>
-						
-								</div>
 
-SEKR032
+								</div> -->
+
+SEKR032 YPJK384 DBRW473
+
+
+<br>
+
+<a class="ui olive label"  href="/getAllOptions">
+  GET all options
+		</a>
 
 
 <% include /workspace/projectx/views/partials/footer.ejs %>

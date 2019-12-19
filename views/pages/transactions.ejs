@@ -3,7 +3,7 @@
 
 <h2 class="ui center aligned icon header">
   <i class="money bill alternate icon"></i>
-  This is specific to cards
+  All the transactions on an Account
 </h2>
 
 <div class="col-md-3 text-center">
@@ -12,11 +12,13 @@
       <thead>
         <tr>
 			<th>Card</th>
-		  <th>Name</th>
+		  <!-- <th>Name</th> -->
           <th>encodedKey</th>
+			<th>ID</th>
           <th>cardToken</th>
           <th>Remaining amount</th>
-		      <th>Transaction amount</th>
+		  <th>Transaction amount</th>
+			<th>Type</th>
           <th>Created on</th>
         </tr>
       </thead>
@@ -27,20 +29,24 @@
        <tr>
 		<% if(allTransactions[i].cardTransaction != null) {%>
 		   <td>True</td>
-		   <td><%= allTransactions[i].cardTransaction.cardAcceptor.name %></td>
+		   <!-- <td></td> -->
            <td><%= allTransactions[i].encodedKey %></td>
+		   <td><%= allTransactions[i].id %></td>
            <td><%= allTransactions[i].cardTransaction.cardToken %></td>
 		   <td><%= allTransactions[i].accountBalances.totalBalance %></td>
            <td><%= allTransactions[i].cardTransaction.amount %></td>
+		   <td><%= allTransactions[i].type %></td>
 		   <td><%= allTransactions[i].creationDate %></td>
 		     
 		  <% } else { %>
 		   <td>False</td>
-		   <td>NA</td>
+		   <!-- <td>NA</td> -->
            <td><%= allTransactions[i].encodedKey %></td>
+		   <td><%= allTransactions[i].id %></td>
            <td>NA</td>
 		   <td><%= allTransactions[i].accountBalances.totalBalance %></td>
            <td><%= allTransactions[i].amount %></td>
+		   <td><%= allTransactions[i].type %></td>
 		   <td><%= allTransactions[i].creationDate %></td>
 		    <% } %> 
        </tr>
