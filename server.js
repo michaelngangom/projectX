@@ -42,7 +42,7 @@ auth=config.basicAuth;
 app.use(BodyParser.urlencoded({ extended: true }));
 app.set('view engine','ejs');
 
-var CONNECTION_URL='mongodb+srv://dbadmin:mongodb123@cluster0-grfcl.mongodb.net/test?retryWrites=true';
+var CONNECTION_URL='mongodb+srv://<username>:<password>@cluster0-grfcl.mongodb.net/test?retryWrites=true';
 const DATABASE_NAME = "CardToken";
 
 
